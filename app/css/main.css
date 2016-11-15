@@ -57,7 +57,17 @@ table {
     display: -ms-flexbox;
     display: flex;
     -ms-flex-direction: column;
-    flex-direction: column; }
+    flex-direction: column;
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ccc;
+    margin: 10px;
+    border-radius: 3px;
+    box-shadow: 0 10px 6px -6px #777; }
+  .row .pokemon__name {
+    margin: 10px auto;
+    border-bottom: 1px solid #CCCCCC;
+    padding-bottom: 15px; }
 
 body {
   font-family: 'Roboto Slab', serif; }
@@ -79,3 +89,7 @@ h5 {
 
 h6 {
   font-size: .7em; }
+
+.pokemon__image {
+  width: 60%;
+  margin: 0 auto; }
