@@ -1,9 +1,8 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto+Slab');
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
 
-body {
-    font-family: 'Roboto Slab', serif;
-}
+$font-family: 'Montserrat', serif;
 
+body { font-family: $font-family; }
 h1 { font-size: 2em; }
 h2 { font-size: 1.7em; }
 h3 { font-size: 1.4em; }

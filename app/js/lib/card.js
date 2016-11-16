@@ -6,10 +6,10 @@
     for (var i = 1; i < 4; i++) {
         var url = apiUrl + type + i.toString();
 
-        $.get(url)
-            .done(function (res) {
-                var pokemon = handleData(res);
-            });
+        // $.get(url)
+        //     .done(function (res) {
+        //         var pokemon = handleData(res);
+        //     });
     }
 
     function handleData(res) {
@@ -22,7 +22,7 @@
         var pokeAbilities = res.abilities;
         var abilityName = '';
         var pokemonStats = '';
-        //console.log(pokeAbilities);
+        console.log(pokeAbilities);
 
         var pokemonName = $("<h1></h1>", {
             text: res.name,
@@ -34,11 +34,8 @@
         })
             .append(pokemonName);
 
-        $.each(pokeAbilities, function (idx, val) {
-            abilityName = val.ability.name;
-            pokemonStats = pokestats(abilityName, res.name);
-            div.append(pokemonStats);
-        });
+        pokemonStats = pokestats(abilityName, res.name);
+        div.append(pokemonStats);
 
         //console.log(div);
         div[0].dataset.pokemonName = res.name;
@@ -46,7 +43,7 @@
         return div;
     }
 
-    function pokestats (val, name) {
+    function pokestats (pokeAbilities) {
         var item = $("<h2></h2>", {
             text: val
         });
@@ -54,6 +51,11 @@
         var container = $("<div></div>", {
             class: "pokemon__list"
         }).append(item);
+
+        $.each(pokeAbilities, function (idx, val) {
+            abilityName = val.ability.name;
+
+        });
 
         return container;
     }

@@ -47,3 +47,19 @@ $header-font-weight: $bold;
         padding-bottom: 15px;
     }
 }
+
+// Header
+.header {
+    height: 425px;
+    text-align: center;
+    color: $white;
+    background-color: $black;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+
+    h1 { margin-bottom: 20px; }
+}

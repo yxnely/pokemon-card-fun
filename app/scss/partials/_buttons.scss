@@ -1,1 +1,17 @@
+button[name="random"] {
+    height: 45px;
+    width: 200px;
+    border-radius: 25px;
+    border: none;
+    background-color: transparent;
+    font-family: $font-family;
+    border: 1px solid $white;
+    color: $white;
+    font-size: 1em;
 
+    &:hover {
+        color: $black;
+        background-color: $white;
+        cursor: pointer;
+    }
+}
