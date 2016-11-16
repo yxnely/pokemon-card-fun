@@ -24,30 +24,6 @@ $header-font-weight: $bold;
     padding: 20px;
 }
 
-.row {
-    display: flex;
-
-    > div {
-        width: 33%;
-        display: flex;
-        flex-direction: column;
-        padding: 10px;
-        text-align: center;
-        border: 1px solid #ccc;
-        margin: 10px;
-        border-radius: 3px;
-        -webkit-box-shadow: 0 10px 6px -6px #777;
-	   -moz-box-shadow: 0 10px 6px -6px #777;
-	        box-shadow: 0 10px 6px -6px #777;
-    }
-
-    .pokemon__name {
-        margin: 10px auto;
-        border-bottom: 1px solid #CCCCCC;
-        padding-bottom: 15px;
-    }
-}
-
 // Header
 .header {
     height: 425px;
@@ -62,4 +38,84 @@ $header-font-weight: $bold;
     align-content: center;
 
     h1 { margin-bottom: 20px; }
+}
+
+// Grid
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    align-content: center;
+    padding-top: 20px;
+    background-color: #EDEDED;
+
+    > div {
+        display: flex;
+        flex-direction: column;
+        padding: 10px;
+        text-align: center;
+        margin: 10px;
+        background-color: $white;
+        border-radius: 3px;
+        -webkit-box-shadow: 0 10px 6px -6px #DDDDDD;
+	       -moz-box-shadow: 0 10px 6px -6px #DDDDDD;
+	        box-shadow: 0 10px 6px -6px #DDDDDD;
+
+        &:hover {
+            -webkit-box-shadow: 0 10px 6px -6px #777;
+    	       -moz-box-shadow: 0 10px 6px -6px #777;
+    	        box-shadow: 0 10px 6px -6px #777;
+        }
+    }
+
+    .pokemon__name {
+        margin: 10px auto;
+        border-bottom: 1px solid #CCCCCC;
+        padding-bottom: 15px;
+        text-transform: capitalize;
+    }
+}
+
+
+// Cards
+.pokemon__list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    h2 { font-size: 1em; }
+    p { font-size: .9em; }
+}
+
+@media screen and (min-width: 969px) {
+    .row {
+        justify-content: center;
+
+         > div {
+            width: 29%;
+        }
+    }
+}
+
+
+@media screen and (max-width: 968px) and (min-width: 650px){
+    .row {
+        justify-content: space-between;
+
+        > div {
+            width: 43%;
+        }
+    }
+}
+
+@media screen and (max-width: 649px) {
+    .row {
+        justify-content: center;
+
+        > div {
+            width: 75%;
+        }
+    }
 }

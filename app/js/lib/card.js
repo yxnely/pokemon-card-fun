@@ -6,10 +6,10 @@
     for (var i = 1; i < 4; i++) {
         var url = apiUrl + type + i.toString();
 
-        // $.get(url)
-        //     .done(function (res) {
-        //         var pokemon = handleData(res);
-        //     });
+        $.get(url)
+            .done(function (res) {
+                var pokemon = handleData(res);
+            });
     }
 
     function handleData(res) {
@@ -22,7 +22,6 @@
         var pokeAbilities = res.abilities;
         var abilityName = '';
         var pokemonStats = '';
-        console.log(pokeAbilities);
 
         var pokemonName = $("<h1></h1>", {
             text: res.name,
@@ -34,7 +33,7 @@
         })
             .append(pokemonName);
 
-        pokemonStats = pokestats(abilityName, res.name);
+        pokemonStats = pokestats(pokeAbilities, res.name);
         div.append(pokemonStats);
 
         //console.log(div);
@@ -43,19 +42,32 @@
         return div;
     }
 
-    function pokestats (pokeAbilities) {
+    function pokestats (pokeAbilities, name) {
+        var response = "";
+
+        $.each(pokeAbilities, function (index, value) {
+            //console.log(index, value.ability.name);
+            if (index === 0) {
+                response += value.ability.name;
+            } else {
+                response += ", " + value.ability.name;
+            }
+        });
+
         var item = $("<h2></h2>", {
-            text: val
+            text: "Abilities",
+            class: "title"
+        });
+
+        var abilities = $("<p></p>", {
+            text: response
         });
 
         var container = $("<div></div>", {
             class: "pokemon__list"
-        }).append(item);
-
-        $.each(pokeAbilities, function (idx, val) {
-            abilityName = val.ability.name;
-
-        });
+        })
+            .append(item)
+            .append(abilities);
 
         return container;
     }
