@@ -1,5 +1,5 @@
 (function ($) {
-    var apiUrl = "http://pokeapi.co/api/v2/";
+    var apiUrl = "https://pokeapi.co/api/v2/";
     var type = "pokemon/";
     var pokemonContainer = $(".row");
 
